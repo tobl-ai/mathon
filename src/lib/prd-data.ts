@@ -28,7 +28,7 @@ export const COMPETITORS: Competitor[] = [
   {
     name: "퀘스티아이",
     strength: "AI 문제 변형",
-    weakness: "HWP 편집 불편, 해설 미주 처리 부재, 문제-해설 분리",
+    weakness: "HWPX 출력 편집 불편, 해설 미주 처리 부재, 문제-해설 분리",
   },
   {
     name: "매스플랫",
@@ -63,13 +63,14 @@ export const GENERATION_FEATURES: Feature[] = [
   { id: "GN-02", name: "구조 변형", priority: "P0", description: "핵심 개념 유지, 구조를 변형한 문제 생성" },
   { id: "GN-03", name: "난이도 조절", priority: "P0", description: "더 쉽게 / 비슷하게 / 더 어렵게 변형" },
   { id: "GN-04", name: "생성 개수 지정", priority: "P0", description: "사용자가 원하는 문제 수 지정 (1~20개)" },
-  { id: "GN-05", name: "AI 자체 검증", priority: "P0", description: "생성된 문제를 AI가 다시 풀어 정답 검증" },
-  { id: "GN-06", name: "해설 자동 생성", priority: "P0", description: "변형된 문제에 대한 풀이 해설 자동 생성" },
+  { id: "GN-05", name: "멀티 AI 교차 검증", priority: "P0", description: "Gemini + Claude 독립 풀이 후 답 일치 시에만 채택" },
+  { id: "GN-06", name: "AI 기반 문제 수정", priority: "P0", description: "답 불일치 시 문제 조건을 자동 수정하여 재검증" },
+  { id: "GN-07", name: "해설 자동 생성", priority: "P0", description: "검증 통과된 문제에 대한 풀이 해설 자동 생성" },
 ];
 
 export const OUTPUT_FEATURES: Feature[] = [
-  { id: "OUT-01", name: "HWP 파일 출력", priority: "P0", description: "편집 가능한 .hwp 형식으로 다운로드" },
-  { id: "OUT-02", name: "수식 렌더링 유지", priority: "P0", description: "HWP 내 수학 수식이 깨지지 않고 표시" },
+  { id: "OUT-01", name: "HWPX 파일 출력", priority: "P0", description: "편집 가능한 .hwpx 형식으로 다운로드" },
+  { id: "OUT-02", name: "수식 편집 가능", priority: "P0", description: "HWPX 내 수학 수식이 한글 네이티브 수식으로 편집 가능" },
   { id: "OUT-03", name: "미주 처리", priority: "P0", description: "문제 번호 클릭 시 해설로 이동하는 미주 링크" },
   { id: "OUT-04", name: "문제-해설 레이아웃", priority: "P0", description: "문제 바로 아래에 해설 배치 옵션" },
   { id: "OUT-05", name: "PDF 출력", priority: "P2", description: "PDF 형식 추가 출력 옵션" },
@@ -92,8 +93,8 @@ export const ROADMAP: RoadmapPhase[] = [
       "이미지/PDF 업로드 → OCR 문제 인식",
       "AI 유사 문제 생성 (숫자/구조 변형)",
       "난이도 조절 (쉽게/비슷하게/어렵게)",
-      "HWP 파일 출력 (수식 유지, 미주 처리)",
-      "AI 자체 검증 시스템",
+      "멀티 AI 교차 검증 (Gemini + Claude, 최대 3라운드 수정)",
+      "HWPX 파일 출력 (편집 가능 네이티브 수식, 미주 처리)",
     ],
   },
   {
@@ -105,6 +106,7 @@ export const ROADMAP: RoadmapPhase[] = [
       "교재 연동 기능",
       "문제 검색 및 필터링",
       "교사 커뮤니티 (문제 공유)",
+      "검증 통과 문제 캐싱 (동일 문제 재생성 방지)",
     ],
   },
   {
@@ -138,11 +140,12 @@ export interface Risk {
 }
 
 export const RISKS: Risk[] = [
-  { risk: "AI 오답률이 높을 경우", impact: "높음", mitigation: "다중 AI 검증(생성 AI + 검증 AI 분리), 교사 리뷰 피드백 루프" },
-  { risk: "HWP 수식 렌더링 실패", impact: "높음", mitigation: "hwp.js 대안 조사, 수식을 이미지로 임베딩하는 전략" },
+  { risk: "AI 검증 후에도 오답 발생", impact: "높음", mitigation: "3라운드 수정 루프, 불일치 문제 제외, 교사 피드백 수집" },
+  { risk: "HWPX 수식 렌더링 오류", impact: "높음", mitigation: "OWPML 표준 준수, 실제 한컴오피스 테스트 자동화" },
+  { risk: "검증 루프로 응답 시간 증가", impact: "중간", mitigation: "Gemini/Claude 병렬 호출, 1라운드 통과 문제 우선 출력" },
   { risk: "OCR 수식 인식 오류", impact: "중간", mitigation: "Gemini Vision 외 MathPix 등 전문 OCR 병행 검토" },
   { risk: "저작권 이슈 (문제집 DB화)", impact: "중간", mitigation: "법률 검토, AI 변형으로 2차 저작물화, 출처 표기" },
-  { risk: "API 비용 증가", impact: "중간", mitigation: "문제은행 캐싱, 빈출 유형 사전 생성, 비용 모니터링" },
+  { risk: "API 비용 증가 (검증 2배)", impact: "중간", mitigation: "검증 통과 문제 캐싱, 빈출 유형 사전 생성, 비용 모니터링" },
 ];
 
 export const QUOTES = [

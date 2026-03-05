@@ -22,7 +22,7 @@ export default function DocsPage() {
             매스온 (Mathon) - PRD
           </h1>
           <p className="mt-2 text-sm text-muted">
-            Version 1.0 | 2026-03-05 | Status: Draft
+            Version 2.0 | 2026-03-06 | Status: Draft
           </p>
         </header>
         <div className="max-w-4xl">

@@ -5,7 +5,7 @@ export function SectionMvp() {
     <Section id="mvp" title="2. MVP (Minimum Viable Product)">
       <div className="mb-6 rounded-lg border border-accent/30 bg-accent-light/20 p-4">
         <p className="text-sm font-medium">
-          &ldquo;수학 문제 이미지/PDF를 입력하면, 변형된 문제가 편집 가능한 HWP 파일로 출력된다&rdquo;
+          &ldquo;수학 문제 이미지/PDF를 입력하면, AI가 검증한 변형 문제가 편집 가능한 HWPX 파일로 출력된다&rdquo;
         </p>
       </div>
 
@@ -15,8 +15,9 @@ export function SectionMvp() {
           <ul className="space-y-1 text-sm text-muted">
             <li>- 문제 입력 (이미지/PDF 업로드)</li>
             <li>- AI 기반 유사 문제 생성</li>
-            <li>- HWP 파일 출력 (수식 유지, 미주 처리)</li>
-            <li>- 기본 난이도 조절</li>
+            <li>- 멀티 AI 교차 검증 (Gemini + Claude)</li>
+            <li>- HWPX 파일 출력 (편집 가능 수식, 미주 처리)</li>
+            <li>- 기본 난이도 조절 (쉽게/비슷하게/어렵게)</li>
           </ul>
         </div>
         <div className="rounded-lg border border-red-200 bg-red-50 p-4 dark:border-red-900 dark:bg-red-950/30">

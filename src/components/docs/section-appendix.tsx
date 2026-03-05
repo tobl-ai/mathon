@@ -3,12 +3,13 @@ import { QuoteBlock } from "./quote-block";
 import { QUOTES } from "@/lib/prd-data";
 
 const COMPARISON = [
-  { feature: "HWP 출력", mathon: true, questai: "partial", mathflat: false, mathsecretary: false },
+  { feature: "HWPX 출력", mathon: true, questai: "partial", mathflat: false, mathsecretary: false },
   { feature: "AI 변형", mathon: true, questai: true, mathflat: false, mathsecretary: false },
+  { feature: "교차검증", mathon: true, questai: false, mathflat: false, mathsecretary: false },
   { feature: "문제은행", mathon: true, questai: false, mathflat: true, mathsecretary: true },
   { feature: "교재연동", mathon: true, questai: false, mathflat: true, mathsecretary: "partial" },
   { feature: "미주처리", mathon: true, questai: false, mathflat: false, mathsecretary: false },
-  { feature: "편집가능", mathon: true, questai: "partial", mathflat: false, mathsecretary: false },
+  { feature: "편집가능수식", mathon: true, questai: false, mathflat: false, mathsecretary: false },
 ];
 
 function StatusIcon({ value }: { value: boolean | string }) {
@@ -50,7 +51,7 @@ export function SectionAppendix() {
       <QuoteBlock quotes={QUOTES} />
 
       <p className="mt-8 text-center text-xs text-muted">
-        이 문서는 2026-03-05 컨설팅 미팅 내용을 기반으로 작성되었습니다.
+        v2.0 (2026-03-06) | HWPX 출력, 멀티 AI 교차 검증, 문제 수정 루프 추가
       </p>
     </Section>
   );

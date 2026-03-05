@@ -7,10 +7,10 @@ const MODELS = [
 ];
 
 const ADVANTAGES = [
-  { label: "HWP 출력 품질", desc: "수식 깨짐 없는 편집 가능 HWP" },
-  { label: "미주 처리", desc: "교사 워크플로우 최적화" },
-  { label: "AI 변형 품질", desc: "다층적 변형 + 자체 검증" },
-  { label: "속도", desc: "5분 이내 시험지 완성" },
+  { label: "HWPX 출력 품질", desc: "편집 가능한 네이티브 수식 (이미지 수식이 아님)" },
+  { label: "미주 처리", desc: "교사 워크플로우에 최적화" },
+  { label: "멀티 AI 교차 검증", desc: "Gemini + Claude 독립 풀이, 합의될 때까지 문제 수정" },
+  { label: "속도", desc: "5분 이내 시험지 완성 (기존 30분~2시간)" },
 ];
 
 export function SectionBusiness() {

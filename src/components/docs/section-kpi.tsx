@@ -3,7 +3,9 @@ import { Section } from "./section";
 const MVP_KPI = [
   { metric: "문제 생성 정확도 (오답률)", target: "< 1%" },
   { metric: "수식 OCR 인식률", target: "> 99%" },
-  { metric: "문제 생성~HWP 출력 시간", target: "< 60초 (10문제)" },
+  { metric: "1라운드 검증 통과율", target: "> 85%" },
+  { metric: "3라운드 내 최종 채택률", target: "> 95%" },
+  { metric: "문제 생성~HWPX 출력 시간", target: "< 90초 (10문제)" },
   { metric: "초기 사용자 (베타)", target: "10명 교사" },
   { metric: "사용자 만족도", target: "NPS > 50" },
 ];
