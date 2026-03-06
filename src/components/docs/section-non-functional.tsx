@@ -12,19 +12,19 @@ const REQUIREMENTS = [
 export function SectionNonFunctional() {
   return (
     <Section id="non-functional" title="5. 비기능 요구사항">
-      <div className="overflow-x-auto rounded-lg border border-border">
+      <div className="overflow-x-auto rounded-xl border border-border bg-card">
         <table className="w-full text-sm">
-          <thead className="bg-surface text-left">
-            <tr>
-              <th className="px-4 py-2.5 font-medium">항목</th>
-              <th className="px-4 py-2.5 font-medium">요구사항</th>
+          <thead>
+            <tr className="border-b border-border text-left">
+              <th className="px-4 py-3 text-xs font-medium text-muted">항목</th>
+              <th className="px-4 py-3 text-xs font-medium text-muted">요구사항</th>
             </tr>
           </thead>
           <tbody>
             {REQUIREMENTS.map((r) => (
-              <tr key={r.item} className="border-t border-border">
-                <td className="px-4 py-2.5 font-medium">{r.item}</td>
-                <td className="px-4 py-2.5 text-muted">{r.req}</td>
+              <tr key={r.item} className="border-t border-border-subtle table-row-hover transition-colors">
+                <td className="px-4 py-3 font-medium">{r.item}</td>
+                <td className="px-4 py-3 text-muted">{r.req}</td>
               </tr>
             ))}
           </tbody>

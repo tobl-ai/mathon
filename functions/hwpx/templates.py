@@ -114,7 +114,25 @@ def _para_pr(pr_id: int, align: str) -> str:
 LANGS = ["HANGUL", "LATIN", "HANJA", "JAPANESE", "OTHER", "SYMBOL", "USER"]
 
 
-def build_header_xml() -> str:
+def _bin_data_list(images: list[dict] | None) -> str:
+    """Generate binDataList XML for embedded images."""
+    if not images:
+        return ""
+    items = []
+    for idx, img in enumerate(images, start=1):
+        bin_filename = img.get("_bin_filename", img["filename"])
+        fmt = bin_filename.rsplit(".", 1)[-1] if "." in bin_filename else "png"
+        items.append(
+            f'      <hh:binItem id="{idx}" Type="Embedding"'
+            f' BinData="{bin_filename}" Format="{fmt}"/>'
+        )
+    items_xml = "\n".join(items)
+    return f"""    <hh:binDataList itemCnt="{len(images)}">
+{items_xml}
+    </hh:binDataList>"""
+
+
+def build_header_xml(images: list[dict] | None = None) -> str:
     """Build the complete header.xml with fonts, charPr, paraPr, styles."""
     font_groups = "\n".join(_font_group(lang) for lang in LANGS)
     char_prs = "\n".join([
@@ -126,6 +144,9 @@ def build_header_xml() -> str:
         _para_pr(0, "JUSTIFY"),
         _para_pr(1, "CENTER"),
     ])
+
+    bin_data_xml = _bin_data_list(images)
+    bin_data_section = f"\n{bin_data_xml}" if bin_data_xml else ""
 
     return f"""<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <hh:head xmlns:hh="http://www.hancom.co.kr/hwpml/2011/head"
@@ -176,6 +197,6 @@ def build_header_xml() -> str:
       <hh:style id="0" type="PARA" name="\ubc14\ud0d5\uae00" engName="Normal"
                 paraPrIDRef="0" charPrIDRef="0" nextStyleIDRef="0"
                 langID="1042" lockForm="0"/>
-    </hh:styles>
+    </hh:styles>{bin_data_section}
   </hh:refList>
 </hh:head>"""

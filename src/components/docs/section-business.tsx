@@ -17,35 +17,35 @@ export function SectionBusiness() {
   return (
     <Section id="business" title="9. 비즈니스 모델">
       <h3 className="mb-3 text-lg font-semibold">과금 모델 (검토중)</h3>
-      <div className="mb-8 overflow-x-auto rounded-lg border border-border">
+      <div className="mb-8 overflow-x-auto rounded-xl border border-border bg-card">
         <table className="w-full text-sm">
-          <thead className="bg-surface text-left">
-            <tr>
-              <th className="px-4 py-2.5 font-medium">모델</th>
-              <th className="px-4 py-2.5 font-medium">설명</th>
-              <th className="px-4 py-2.5 font-medium">장점</th>
-              <th className="px-4 py-2.5 font-medium">단점</th>
+          <thead>
+            <tr className="border-b border-border text-left">
+              <th className="px-4 py-3 text-xs font-medium text-muted">모델</th>
+              <th className="px-4 py-3 text-xs font-medium text-muted">설명</th>
+              <th className="px-4 py-3 text-xs font-medium text-muted">장점</th>
+              <th className="px-4 py-3 text-xs font-medium text-muted">단점</th>
             </tr>
           </thead>
           <tbody>
             {MODELS.map((m) => (
-              <tr key={m.model} className="border-t border-border">
-                <td className="px-4 py-2.5 font-medium">{m.model}</td>
-                <td className="px-4 py-2.5 text-muted">{m.desc}</td>
-                <td className="px-4 py-2.5 text-green-600 dark:text-green-400">{m.pros}</td>
-                <td className="px-4 py-2.5 text-red-500 dark:text-red-400">{m.cons}</td>
+              <tr key={m.model} className="border-t border-border-subtle table-row-hover transition-colors">
+                <td className="px-4 py-3 font-medium">{m.model}</td>
+                <td className="px-4 py-3 text-muted">{m.desc}</td>
+                <td className="px-4 py-3 text-success">{m.pros}</td>
+                <td className="px-4 py-3 text-danger">{m.cons}</td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
 
-      <h3 className="mb-3 text-lg font-semibold">핵심 경쟁력</h3>
+      <h3 className="mb-4 text-lg font-semibold">핵심 경쟁력</h3>
       <div className="grid gap-3 sm:grid-cols-2">
         {ADVANTAGES.map((a) => (
-          <div key={a.label} className="rounded-lg border border-border p-4">
-            <div className="text-sm font-semibold text-accent">{a.label}</div>
-            <div className="mt-1 text-sm text-muted">{a.desc}</div>
+          <div key={a.label} className="rounded-xl border border-border bg-card p-5 card-hover">
+            <div className="mb-1.5 text-sm font-semibold text-accent">{a.label}</div>
+            <div className="text-sm leading-relaxed text-muted">{a.desc}</div>
           </div>
         ))}
       </div>

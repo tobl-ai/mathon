@@ -36,12 +36,13 @@ def build_equation_xml(script: str, width: int = 14000) -> str:
 
     return f"""<hp:equation id="{eq_id}" zOrder="0" numberingType="EQUATION"
         textWrap="TOP_AND_BOTTOM" textFlow="BOTH_SIDES" lock="0"
-        dropcapstyle="None" pageBreak="CELL" treatAsChar="1">
+        dropcapstyle="None" version="" baseLine="86" textColor="#000000"
+        baseUnit="1000" lineMode="CHAR" font="HYhwpEQ">
         <hp:sz width="{width}" widthRelTo="ABSOLUTE"
                height="{height}" heightRelTo="ABSOLUTE" protect="0"/>
         <hp:pos treatAsChar="1" affectLSpacing="0" flowWithText="1"
                 allowOverlap="0" holdAnchorAndSO="0"
-                vertRelTo="BASELINE" horzRelTo="COLUMN"
+                vertRelTo="PAPER" horzRelTo="COLUMN"
                 vertAlign="BOTTOM" horzAlign="LEFT"
                 vertOffset="{baseline_offset}" horzOffset="0"/>
         <hp:outMargin left="56" right="56" top="56" bottom="56"/>

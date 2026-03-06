@@ -5,23 +5,25 @@ interface RoadmapCardProps {
   index: number;
 }
 
-const phaseColors = [
-  "border-l-blue-500",
-  "border-l-green-500",
-  "border-l-purple-500",
-  "border-l-orange-500",
+const accentColors = [
+  "border-l-accent",
+  "border-l-success",
+  "border-l-[#818CF8]",
+  "border-l-[#F97316]",
 ];
 
 export function RoadmapCard({ phase, index }: RoadmapCardProps) {
   return (
-    <div className={`rounded-lg border border-border border-l-4 ${phaseColors[index]} p-5`}>
-      <div className="mb-1 text-xs font-medium text-muted">{phase.phase}</div>
-      <h3 className="mb-1 text-lg font-bold">{phase.title}</h3>
-      <div className="mb-3 text-sm text-accent">{phase.period}</div>
-      <ul className="space-y-1.5">
+    <div className={`rounded-xl border border-border border-l-2 ${accentColors[index]} bg-card p-5 card-hover`}>
+      <div className="mb-1 font-mono text-[10px] font-semibold uppercase tracking-widest text-muted">
+        {phase.phase}
+      </div>
+      <h3 className="mb-1 font-display text-xl">{phase.title}</h3>
+      <div className="mb-4 text-sm text-accent">{phase.period}</div>
+      <ul className="space-y-2">
         {phase.items.map((item) => (
-          <li key={item} className="flex items-start gap-2 text-sm text-muted">
-            <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-current" />
+          <li key={item} className="flex items-start gap-2.5 text-sm text-muted">
+            <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-muted/50" />
             {item}
           </li>
         ))}

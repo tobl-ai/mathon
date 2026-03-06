@@ -8,7 +8,7 @@ export function QuoteBlock({ quotes }: QuoteBlockProps) {
       {quotes.map((quote) => (
         <blockquote
           key={quote}
-          className="border-l-4 border-accent bg-accent-light/30 py-3 pl-4 pr-4 text-sm italic text-muted"
+          className="rounded-lg border-l-2 border-accent bg-accent-dim py-4 pl-5 pr-5 text-sm italic leading-relaxed text-muted"
         >
           &ldquo;{quote}&rdquo;
         </blockquote>

@@ -16,13 +16,18 @@ export default function DocsPage() {
   return (
     <div className="flex">
       <Sidebar />
-      <main className="min-h-screen flex-1 px-6 py-8 sm:px-12 lg:px-16">
-        <header className="mb-8 border-b border-border pb-6">
-          <h1 className="text-3xl font-bold tracking-tight">
-            매스온 (Mathon) - PRD
+      <main className="min-h-screen flex-1 px-6 py-10 sm:px-12 lg:px-20">
+        <header className="mb-10 border-b border-border pb-8">
+          <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3 py-1">
+            <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+            <span className="text-xs text-muted">v2.0 · 2026-03-06</span>
+          </div>
+          <h1 className="font-display text-4xl tracking-tight sm:text-5xl">
+            매스온 <span className="text-accent">PRD</span>
           </h1>
-          <p className="mt-2 text-sm text-muted">
-            Version 2.0 | 2026-03-06 | Status: Draft
+          <p className="mt-3 max-w-lg text-sm leading-relaxed text-muted">
+            AI 기반 수학 문제 변형 및 학습자료 생성 플랫폼 —
+            제품 요구사항 정의서
           </p>
         </header>
         <div className="max-w-4xl">

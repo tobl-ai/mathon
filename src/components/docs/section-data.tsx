@@ -7,26 +7,32 @@ const DATA_SOURCES = [
   { source: "교사 기여", method: "직접 제작 문제 공유", priority: "P2" },
 ];
 
+const priorityBadge: Record<string, string> = {
+  P0: "badge-p0",
+  P1: "badge-p1",
+  P2: "badge-p2",
+};
+
 export function SectionData() {
   return (
     <Section id="data" title="7. 데이터 전략">
       <h3 className="mb-3 text-lg font-semibold">문제 데이터 확보</h3>
-      <div className="mb-6 overflow-x-auto rounded-lg border border-border">
+      <div className="mb-8 overflow-x-auto rounded-xl border border-border bg-card">
         <table className="w-full text-sm">
-          <thead className="bg-surface text-left">
-            <tr>
-              <th className="px-4 py-2.5 font-medium">소스</th>
-              <th className="px-4 py-2.5 font-medium">방법</th>
-              <th className="px-4 py-2.5 font-medium">우선순위</th>
+          <thead>
+            <tr className="border-b border-border text-left">
+              <th className="px-4 py-3 text-xs font-medium text-muted">소스</th>
+              <th className="px-4 py-3 text-xs font-medium text-muted">방법</th>
+              <th className="px-4 py-3 text-xs font-medium text-muted">우선순위</th>
             </tr>
           </thead>
           <tbody>
             {DATA_SOURCES.map((d) => (
-              <tr key={d.source} className="border-t border-border">
-                <td className="px-4 py-2.5 font-medium">{d.source}</td>
-                <td className="px-4 py-2.5 text-muted">{d.method}</td>
-                <td className="px-4 py-2.5">
-                  <span className="rounded-full bg-accent/10 px-2 py-0.5 text-xs font-medium text-accent">
+              <tr key={d.source} className="border-t border-border-subtle table-row-hover transition-colors">
+                <td className="px-4 py-3 font-medium">{d.source}</td>
+                <td className="px-4 py-3 text-muted">{d.method}</td>
+                <td className="px-4 py-3">
+                  <span className={`inline-block rounded-md px-2 py-0.5 text-xs font-semibold ${priorityBadge[d.priority]}`}>
                     {d.priority}
                   </span>
                 </td>
@@ -37,22 +43,23 @@ export function SectionData() {
       </div>
 
       <h3 className="mb-3 text-lg font-semibold">데이터 구조</h3>
-      <pre className="overflow-x-auto rounded-lg bg-surface p-4 font-mono text-xs leading-relaxed">
-{`interface MathProblem {
-  id: string;
-  content: string;           // 문제 텍스트 (LaTeX 포함)
-  images: string[];          // 수식/도형 이미지
-  solution: string;          // 해설
-  answer: string;            // 정답
-  difficulty: 1 | 2 | 3 | 4 | 5;
-  category: string;          // 대단원
-  subcategory: string;       // 소단원
-  concepts: string[];        // 관련 개념 태그
-  gradeLevel: string;        // 학년
-  source: string;            // 출처
-  verified: boolean;         // 검증 여부
-}`}
-      </pre>
+      <pre className="overflow-x-auto rounded-xl border border-border bg-surface p-5 font-mono text-xs leading-loose">
+        <span className="text-muted">{"// TypeScript Interface"}</span>
+{`
+`}<span className="text-[#C678DD]">interface</span>{" "}<span className="text-accent">MathProblem</span>{" {"}{`
+  `}<span className="text-foreground">id</span>: <span className="text-success">string</span>;
+{`  `}<span className="text-foreground">content</span>: <span className="text-success">string</span>;           <span className="text-muted">{"// 문제 텍스트 (LaTeX 포함)"}</span>
+{`  `}<span className="text-foreground">images</span>: <span className="text-success">string</span>[];
+{`  `}<span className="text-foreground">solution</span>: <span className="text-success">string</span>;
+{`  `}<span className="text-foreground">answer</span>: <span className="text-success">string</span>;
+{`  `}<span className="text-foreground">difficulty</span>: <span className="text-accent">1 | 2 | 3 | 4 | 5</span>;
+{`  `}<span className="text-foreground">category</span>: <span className="text-success">string</span>;          <span className="text-muted">{"// 대단원"}</span>
+{`  `}<span className="text-foreground">subcategory</span>: <span className="text-success">string</span>;       <span className="text-muted">{"// 소단원"}</span>
+{`  `}<span className="text-foreground">concepts</span>: <span className="text-success">string</span>[];        <span className="text-muted">{"// 관련 개념 태그"}</span>
+{`  `}<span className="text-foreground">gradeLevel</span>: <span className="text-success">string</span>;
+{`  `}<span className="text-foreground">source</span>: <span className="text-success">string</span>;
+{`  `}<span className="text-foreground">verified</span>: <span className="text-accent">boolean</span>;
+{"}"}</pre>
     </Section>
   );
 }
