@@ -126,30 +126,11 @@ export function SectionTech() {
       </div>
 
       <h3 className="mb-3 text-lg font-semibold">4.5 HWPX 생성 시스템</h3>
-      <p className="mb-4 text-sm leading-relaxed text-muted">
-        HWPX는 OWPML 국가표준 기반 ZIP(XML) 아카이브. Python zipfile + XML로 Cloud Functions에서 직접 생성.
-      </p>
-      <div className="mb-5 rounded-xl border border-border bg-surface p-5 font-mono text-xs leading-loose text-muted">
-        <span className="text-foreground">hwpx 파일 구조:</span>
-        <br />├── mimetype <span className="text-accent">(비압축)</span>
-        <br />├── version.xml / settings.xml
-        <br />├── Contents/
-        <br />│&nbsp;&nbsp; ├── content.hpf <span className="text-accent">(매니페스트)</span>
-        <br />│&nbsp;&nbsp; ├── header.xml <span className="text-accent">(폰트, 스타일)</span>
-        <br />│&nbsp;&nbsp; └── section0.xml <span className="text-accent">(문제 + 수식 + 해설)</span>
-        <br />└── META-INF/ (container.xml, manifest.xml)
+      <div className="rounded-xl border border-border bg-card p-5">
+        <p className="text-sm text-muted">
+          자체 개발 HWPX 생성 엔진으로 편집 가능한 네이티브 수식이 포함된 한글 문서를 출력합니다.
+        </p>
       </div>
-      <p className="text-sm leading-relaxed text-muted">
-        수식은{" "}
-        <code className="rounded-md bg-surface px-1.5 py-0.5 font-mono text-xs text-accent">
-          &lt;hp:equation&gt;
-        </code>{" "}
-        +{" "}
-        <code className="rounded-md bg-surface px-1.5 py-0.5 font-mono text-xs text-accent">
-          &lt;hp:script&gt;
-        </code>{" "}
-        태그로 삽입하여 이미지가 아닌 편집 가능한 네이티브 수식으로 출력.
-      </p>
     </Section>
   );
 }

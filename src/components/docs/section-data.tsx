@@ -43,23 +43,7 @@ export function SectionData() {
       </div>
 
       <h3 className="mb-3 text-lg font-semibold">데이터 구조</h3>
-      <pre className="overflow-x-auto rounded-xl border border-border bg-surface p-5 font-mono text-xs leading-loose">
-        <span className="text-muted">{"// TypeScript Interface"}</span>
-{`
-`}<span className="text-[#C678DD]">interface</span>{" "}<span className="text-accent">MathProblem</span>{" {"}{`
-  `}<span className="text-foreground">id</span>: <span className="text-success">string</span>;
-{`  `}<span className="text-foreground">content</span>: <span className="text-success">string</span>;           <span className="text-muted">{"// 문제 텍스트 (LaTeX 포함)"}</span>
-{`  `}<span className="text-foreground">images</span>: <span className="text-success">string</span>[];
-{`  `}<span className="text-foreground">solution</span>: <span className="text-success">string</span>;
-{`  `}<span className="text-foreground">answer</span>: <span className="text-success">string</span>;
-{`  `}<span className="text-foreground">difficulty</span>: <span className="text-accent">1 | 2 | 3 | 4 | 5</span>;
-{`  `}<span className="text-foreground">category</span>: <span className="text-success">string</span>;          <span className="text-muted">{"// 대단원"}</span>
-{`  `}<span className="text-foreground">subcategory</span>: <span className="text-success">string</span>;       <span className="text-muted">{"// 소단원"}</span>
-{`  `}<span className="text-foreground">concepts</span>: <span className="text-success">string</span>[];        <span className="text-muted">{"// 관련 개념 태그"}</span>
-{`  `}<span className="text-foreground">gradeLevel</span>: <span className="text-success">string</span>;
-{`  `}<span className="text-foreground">source</span>: <span className="text-success">string</span>;
-{`  `}<span className="text-foreground">verified</span>: <span className="text-accent">boolean</span>;
-{"}"}</pre>
+      <pre className="overflow-x-auto whitespace-pre rounded-xl border border-border bg-surface p-5 font-mono text-xs leading-loose"><code><span className="text-muted">{"// TypeScript Interface"}</span>{"\n"}{"\n"}<span className="text-[#C678DD]">interface</span> <span className="text-accent">MathProblem</span> {"{"}{"\n"}  <span className="text-foreground">id</span>: <span className="text-success">string</span>;{"\n"}  <span className="text-foreground">content</span>: <span className="text-success">string</span>;           <span className="text-muted">{"// 문제 텍스트 (LaTeX 포함)"}</span>{"\n"}  <span className="text-foreground">images</span>: <span className="text-success">string</span>[];          <span className="text-muted">{"// 수식/도형 이미지"}</span>{"\n"}  <span className="text-foreground">solution</span>: <span className="text-success">string</span>;         <span className="text-muted">{"// 해설"}</span>{"\n"}  <span className="text-foreground">answer</span>: <span className="text-success">string</span>;           <span className="text-muted">{"// 정답"}</span>{"\n"}  <span className="text-foreground">difficulty</span>: <span className="text-accent">1</span> | <span className="text-accent">2</span> | <span className="text-accent">3</span> | <span className="text-accent">4</span> | <span className="text-accent">5</span>;{"\n"}  <span className="text-foreground">category</span>: <span className="text-success">string</span>;         <span className="text-muted">{"// 대단원"}</span>{"\n"}  <span className="text-foreground">subcategory</span>: <span className="text-success">string</span>;      <span className="text-muted">{"// 소단원"}</span>{"\n"}  <span className="text-foreground">concepts</span>: <span className="text-success">string</span>[];       <span className="text-muted">{"// 관련 개념 태그"}</span>{"\n"}  <span className="text-foreground">gradeLevel</span>: <span className="text-success">string</span>;       <span className="text-muted">{"// 학년"}</span>{"\n"}  <span className="text-foreground">source</span>: <span className="text-success">string</span>;           <span className="text-muted">{"// 출처"}</span>{"\n"}  <span className="text-foreground">verified</span>: <span className="text-[#C678DD]">boolean</span>;        <span className="text-muted">{"// 검증 여부"}</span>{"\n"}{"}"}</code></pre>
     </Section>
   );
 }
