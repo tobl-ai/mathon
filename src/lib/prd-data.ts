@@ -4,6 +4,8 @@ export interface NavItem {
 }
 
 export const NAV_ITEMS: NavItem[] = [
+  { id: "vision", label: "미션 & 비전" },
+  { id: "master-roadmap", label: "1,000억 로드맵" },
   { id: "overview", label: "제품 개요" },
   { id: "mvp", label: "MVP" },
   { id: "features", label: "기능 요구사항" },
@@ -11,7 +13,7 @@ export const NAV_ITEMS: NavItem[] = [
   { id: "non-functional", label: "비기능 요구사항" },
   { id: "user-flow", label: "사용자 플로우" },
   { id: "data", label: "데이터 전략" },
-  { id: "roadmap", label: "로드맵" },
+  { id: "roadmap", label: "MVP 로드맵" },
   { id: "business", label: "비즈니스 모델" },
   { id: "kpi", label: "성공 지표" },
   { id: "risks", label: "리스크" },

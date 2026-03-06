@@ -1,4 +1,6 @@
 import { Sidebar } from "@/components/docs/sidebar";
+import { SectionVision } from "@/components/docs/section-vision";
+import { SectionMasterRoadmap } from "@/components/docs/section-master-roadmap";
 import { SectionOverview } from "@/components/docs/section-overview";
 import { SectionMvp } from "@/components/docs/section-mvp";
 import { SectionFeatures } from "@/components/docs/section-features";
@@ -31,6 +33,8 @@ export default function DocsPage() {
           </p>
         </header>
         <div className="max-w-4xl">
+          <SectionVision />
+          <SectionMasterRoadmap />
           <SectionOverview />
           <SectionMvp />
           <SectionFeatures />
